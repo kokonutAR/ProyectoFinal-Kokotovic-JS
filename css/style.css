@@ -1,0 +1,24 @@
+.imgTransportes {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-top: 1rem;
+}
+
+.tarjeta {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+
+.colorBoton {
+    color: #fafafa;
+    background-color: #5e6f9f;
+}
+
+.colorBoton:hover {
+    
+    background-color: #475377;
+    color: #fafafa;
+}
