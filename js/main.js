@@ -118,16 +118,10 @@ const mostrarMostrador = () => {
                                 <p> <p> ${transporte.pasajeros} </p>
                                 <p> ${transporte.distancia} </p>
                                 <p> ${transporte.cantidad} </p>
-                                <button class = "btn colorBoton" id="Eliminar${transporte.id}"> Eliminar </button>
                             </div>
                         </div>
                         `;
     contenedorMostrador.appendChild(tarjeta);
-
-    const boton = document.getElementById(`eliminar${transporte.id}`);
-    boton.addEventListener("click", () => {
-      eliminarDelMostrador(transporte.id);
-    });
   });
   precioTotal();
 };
