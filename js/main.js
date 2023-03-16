@@ -42,12 +42,30 @@ const minibusLargaDistancia = new Transporte(
   "Más de 20km",
   "img/minibus.jpg"
 );
+const taxiPremium = new Transporte(
+  5,
+  "Taxi Premium",
+  5000,
+  "Max 4 Pasajeros",
+  "Dentro de la Ciudad",
+  "img/taxi-premium.jpg"
+);
+const taxiComfort = new Transporte(
+  6,
+  "Taxi Comfort",
+  6000,
+  "Max 4 Pasajeros",
+  "Dentro de la ciudad",
+  "img/taxi-comfort.jpg"
+);
 
 const transportes = [
   combi,
   minibus,
   combiLargaDistancia,
   minibusLargaDistancia,
+  taxiPremium,
+  taxiComfort
 ];
 console.log(transportes);
 
@@ -66,9 +84,9 @@ const mostrarTransportes = () => {
     tarjeta.innerHTML = `
                         <div class ="tarjeta">
                             <img src = "${transporte.img}" class = "tarjeta-img-top imgTransportes" alt = "${transporte.nombre}">
-                            <div>
+                            <div class = "tarjetaTexto">
                                 <h5> ${transporte.nombre} </h5>
-                                <p> ${transporte.precio} $ </p>
+                                <p class = "text-danger"> ${transporte.precio} $ </p>
                                 <p> ${transporte.pasajeros} </p>
                                 <p> ${transporte.distancia} </p>
                                 <button class = "btn colorBoton" id="boton${transporte.id}" > Agregar Viaje </button>
@@ -80,6 +98,15 @@ const mostrarTransportes = () => {
     const boton = document.getElementById(`boton${transporte.id}`);
     boton.addEventListener("click", () => {
       agregarViaje(transporte.id);
+      Toastify( {
+        text: "Viaje agregado",
+        duration: 1000,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "linear-gradient(90deg, rgba(49,47,93,1) 0%, rgba(88,88,159,1) 70%, rgba(0,212,255,1) 100%)"
+        }
+      }).showToast();
     });
   });
 };
@@ -155,3 +182,21 @@ const eliminarTodoElMostrador = () => {
   mostrarMostrador();
   localStorage.clear();
 };
+
+const contratarViaje = document.getElementById("contratarViaje")
+
+contratarViaje.addEventListener("click", () => {
+  Swal.fire({
+    title: "Contratar Viaje?",
+    showDenyButton: true,
+    confirmButtonText: "Si",
+    denyButtonText: "No",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire("Servicio Contratado", '', 'success')
+      eliminarDelMostrador();
+    } else if (result.isDenied) {
+      Swal.fire("Servicio No Contratado", '', 'error')
+    }
+  })
+})
