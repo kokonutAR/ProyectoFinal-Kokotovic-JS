@@ -30,3 +30,11 @@
     background-color: #475377;
     color: #fafafa;
 }
+
+.tarjetaCantidad{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+

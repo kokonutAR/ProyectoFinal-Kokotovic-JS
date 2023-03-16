@@ -144,13 +144,44 @@ const mostrarMostrador = () => {
                                 <h5> ${transporte.nombre} </h5>
                                 <p> <p> ${transporte.pasajeros} </p>
                                 <p> ${transporte.distancia} </p>
-                                <p> ${transporte.cantidad} </p>
+                                <div class = "tarjetaCantidad">
+                                  <p class = "cantidad"> Cantidad: ${transporte.cantidad}</p>
+                                  <button class = "btn btnCantidad" id = "sumarViaje${transporte.id}"> + </button>
+                                  <button class = "btn btnCantidad" id = "restarViaje${transporte.id}"> - </button>
+                                </div>
                             </div>
                         </div>
                         `;
     contenedorMostrador.appendChild(tarjeta);
+
+    const sumarViaje = document.getElementById(`sumarViaje${transporte.id}`);
+    sumarViaje.addEventListener("click", () => {
+    aumentarCantidad(transporte.id);
+    });
+
+    const restarViaje = document.getElementById(`restarViaje${transporte.id}`);
+    restarViaje.addEventListener("click", () => {
+    restarCantidad(transporte.id);
+    });
+
+    const eliminarViaje = document.getElementById(`eliminar${transporte.id}`);
+    eliminarViaje.addEventListener("click", () => {
+    eliminarDelMostrador(transporte.id)
+    });
   });
   precioTotal();
+};
+
+const aumentarCantidad = (id) => {
+  const transporte = mostrador.find((transporte) => transporte.id === id);
+  transporte.cantidad--;
+
+  if(transporte.cantidad === 0){
+    eliminarDelMostrador(id);
+  }else{
+    localStorage.setItem("mostrador",JSON.stringify(mostrador));
+  };
+  mostrarMostrador();
 };
 
 const eliminarDelMostrador = (id) => {
