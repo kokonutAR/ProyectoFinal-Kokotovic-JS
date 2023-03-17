@@ -163,26 +163,27 @@ const mostrarMostrador = () => {
     restarViaje.addEventListener("click", () => {
     restarCantidad(transporte.id);
     });
-
-    const eliminarViaje = document.getElementById(`eliminar${transporte.id}`);
-    eliminarViaje.addEventListener("click", () => {
-    eliminarDelMostrador(transporte.id)
-    });
   });
   precioTotal();
 };
 
 const aumentarCantidad = (id) => {
   const transporte = mostrador.find((transporte) => transporte.id === id);
-  transporte.cantidad--;
-
-  if(transporte.cantidad === 0){
-    eliminarDelMostrador(id);
-  }else{
-    localStorage.setItem("mostrador",JSON.stringify(mostrador));
-  };
+  transporte.cantidad++;
+  localStorage.setItem("mostrador",JSON.stringify(mostrador));
   mostrarMostrador();
 };
+
+const restarCantidad = (id) => {
+  const transporte = mostrador.find((transporte) => transporte.id === id);
+  transporte.cantidad--;
+if(transporte.cantidad === 0){
+  eliminarDelMostrador(id);
+}else{
+  localStorage.setItem("mostrador",JSON.stringify(mostrador));
+}
+mostrarMostrador();
+}
 
 const eliminarDelMostrador = (id) => {
   const transporte = mostrador.find((transporte) => transporte.id === id);
