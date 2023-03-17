@@ -1,0 +1,9 @@
+[
+    {"id": 1, "nombre": "Combi", "precio": 12000, "pasajeros": "Max 13 Pasajeros", "distancia": "Menos de 20km", "img": "img/combi.jpg", "cantidad": 1},
+    {"id": 2, "nombre": "Minibus", "precio": 16000, "pasajeros": "Max 19 Pasajeros", "distancia": "Menos de 20km", "img": "img/minibus.jpg", "cantidad": 1},
+    {"id": 3, "nombre": "Combi Larga Distancia", "precio": 32000, "pasajeros": "Max 13 Pasajeros", "distancia": "Más de 20km", "img": "img/combi.jpg", "cantidad": 1},
+    {"id": 4, "nombre": "Minibus Larga Distancia", "precio": 40000, "pasajeros": "Max 19 Pasajeros", "distancia": "Más de 20km", "img": "img/minibus.jpg", "cantidad": 1},
+    {"id": 5, "nombre": "Taxi Premium", "precio": 5000, "pasajeros": "Max 4 Pasajeros", "distancia": "Dentro de la Ciudad", "img": "img/taxi-premium.jpg", "cantidad": 1},
+    {"id": 6, "nombre": "Taxi Comfort", "precio": 6000, "pasajeros": "Max 4 Pasajeros", "distancia": "Dentro de la Ciudad", "img": "img/taxi-comfort.jpg", "cantidad": 1}
+    
+]
